@@ -11,7 +11,7 @@ class BenutzerTest {
 
     @Test
     void kalkuliereZeit() {
-        Benutzer x = new Benutzer("", "", null);
+        Benutzer x = new Benutzer(null, null, null);
         List<Sport> sportList = new ArrayList<>();
         x.setSport(sportList);
         assertEquals(x.kalkuliereZeit(), 0);
@@ -29,7 +29,7 @@ class BenutzerTest {
 
     @Test
     void testKalkuliereZeit() {
-        Benutzer x = new Benutzer("", "", null);
+        Benutzer x = new Benutzer(null, null, null);
         List<Sport> sportList = new ArrayList<>();
         x.setSport(sportList);
         assertEquals(x.kalkuliereZeit(new Basketball()), 0);
