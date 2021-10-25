@@ -11,50 +11,50 @@ class BenutzerTest {
 
     @Test
     void kalkuliereZeit() {
-        Benutzer x = new Benutzer(null, null, null);
+        Benutzer user = new Benutzer(null, null, null);
         List<Sport> sportList = new ArrayList<>();
-        x.setSport(sportList);
-        assertEquals(x.kalkuliereZeit(), 0);
+        user.setSport(sportList);
+        assertEquals(user.kalkuliereZeit(), 0);
 
-        Basketball b = new Basketball();
-        Fussball f = new Fussball();
-        sportList.add(b);
-        sportList.add(f);
+        Basketball basket = new Basketball();
+        Fussball football = new Fussball();
+        sportList.add(basket);
+        sportList.add(football);
 
-        assertEquals(x.kalkuliereZeit(), 120);
+        assertEquals(user.kalkuliereZeit(), 120);
 
-        sportList.add(f);
-        assertEquals(x.kalkuliereZeit(), 185);
+        sportList.add(football);
+        assertEquals(user.kalkuliereZeit(), 185);
     }
 
     @Test
     void testKalkuliereZeit() {
-        Benutzer x = new Benutzer(null, null, null);
+        Benutzer user = new Benutzer(null, null, null);
         List<Sport> sportList = new ArrayList<>();
-        x.setSport(sportList);
-        assertEquals(x.kalkuliereZeit(new Basketball()), 0);
+        user.setSport(sportList);
+        assertEquals(user.kalkuliereZeit(new Basketball()), 0);
 
-        Basketball b = new Basketball();
-        sportList.add(b);
-        assertEquals(x.kalkuliereZeit(b), new Basketball().kalkuliereZeit());
+        Basketball basket = new Basketball();
+        sportList.add(basket);
+        assertEquals(user.kalkuliereZeit(basket), new Basketball().kalkuliereZeit());
 
-        sportList.add(b);
-        assertEquals(x.kalkuliereZeit(b), new Basketball().kalkuliereZeit()*2);
+        sportList.add(basket);
+        assertEquals(user.kalkuliereZeit(basket), new Basketball().kalkuliereZeit()*2);
     }
 
     @Test
     void kalkuliereDurchschnittszeit() {
-        Benutzer x = new Benutzer("", "", null);
+        Benutzer user = new Benutzer("", "", null);
         List<Sport> sportList = new ArrayList<>();
-        x.setSport(sportList);
-        assertEquals(x.kalkuliereDurchschnittszeit(), 0);
+        user.setSport(sportList);
+        assertEquals(user.kalkuliereDurchschnittszeit(), 0);
 
         sportList.add(new Basketball());
         sportList.add(new Hochsprung());
-        assertEquals(x.kalkuliereDurchschnittszeit(), 37.5);
+        assertEquals(user.kalkuliereDurchschnittszeit(), 37.5);
 
         sportList.add(new Fussball());
         sportList.add(new Hindernislauf());
-        assertEquals(x.kalkuliereDurchschnittszeit(), 42.5);
+        assertEquals(user.kalkuliereDurchschnittszeit(), 42.5);
     }
 }
